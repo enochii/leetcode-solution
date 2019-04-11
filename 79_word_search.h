@@ -1,3 +1,4 @@
+static auto _=[](){cin.tie(nullptr);ios::sync_with_stdio(false);return 0;}();
 class Solution {
     int row_size, col_size;
     int offset[5] = {0, 1, 0, -1, 0};
@@ -30,9 +31,9 @@ public:
         for(int i = 0;i<4;i++){
             int nr = cur_row + offset[i], nc = cur_col + offset[i+1];
             if(!valid(nr, nc))continue;
-            occupied[nr][nc] = true;
+            // occupied[nr][nc] = true;
             if(move(board, p+1,nr, nc))return true;
-            occupied[nr][nc] = false;//roll back
+            // occupied[nr][nc] = false;//roll back
         }
         occupied[cur_row][cur_col] = false;
 
