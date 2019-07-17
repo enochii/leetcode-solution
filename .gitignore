@@ -3,3 +3,5 @@
 # unaccepted
 *.hh
 *.cc
+
+.vscode/
