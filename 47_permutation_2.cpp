@@ -43,7 +43,7 @@ namespace sch001{
     }
 };
 
-class Solution {
+class _Solution {
 public:
     vector<vector<int>> permuteUnique(vector<int>& nums) {
         vector<vector<int>> ret;
@@ -53,5 +53,45 @@ public:
         }while(sch001::next_permutation(nums.begin(), nums.end()));
 
         return ret;
+    }
+};
+
+class Solution {
+public:
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        vector<vector<int>> ret;
+        // std::sort(nums.begin(), nums.end());
+        // do{
+        //     ret.push_back(nums);
+        // }while(sch001::next_permutation(nums.begin(), nums.end()));
+        generate(ret, nums,0);
+
+        return ret;
+    }
+
+    void generate(vector<vector<int>>& res, vector<int>& nums, int cur){
+        if(cur==nums.size()){
+            res.push_back(nums);
+            return;
+        }
+
+        for(int i=cur;i<nums.size();i++){
+            // if(i!=cur&&(nums[i]==nums[i-1]||nums[i]==nums[cur]))continue;
+            //去重的关键
+            //一开始以为只要排序后，比较是否和前面的数相同来continue
+            //最后一个case就死了==
+            bool flag = true;
+            for(int j=cur;j<i;j++){
+                if(nums[j]==nums[i]){
+                    flag = false;
+                    break;
+                }
+            }
+            if(!flag)continue;
+            //
+            swap(nums[i],nums[cur]);
+            generate(res,nums,cur+1);
+            swap(nums[i],nums[cur]);
+        }
     }
 };
