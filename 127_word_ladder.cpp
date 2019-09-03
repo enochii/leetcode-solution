@@ -4,6 +4,11 @@
 
 using namespace std;
 
+//好像可以优化下
+//毕竟你是在对字符串进行比较
+//那么可以先排序 后面可以二分搜索(好像不太行？)
+
+//这里说到了双向BFS，用来减少某些情况分支爆炸
 class Solution {
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
