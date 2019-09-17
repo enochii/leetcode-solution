@@ -7,14 +7,14 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-//Path Sum, tree
-
 class Solution {
 public:
     bool hasPathSum(TreeNode* root, int sum) {
         if(!root)return false;
-        if(sum==0&&!root->left&&!root->right)return true;
-        return hasPathSum(root->left,sum-root->val) ||
-            hasPathSum(root->right,sum-root->val);
+        // cout<<root->val<<' '<<sum<<'\n';
+        sum-=root->val;
+        if(sum==0&&NULL==root->left&&NULL==root->right)return true;
+        return hasPathSum(root->left,sum) ||
+            hasPathSum(root->right,sum);
     }
 };
