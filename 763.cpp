@@ -3,6 +3,8 @@
 class Solution {
 public:
     vector<int> partitionLabels(string S) {
+        //这个last的思想还是很秀的
+        //就是你都到一个字母，你就必然最少读到last[该字母]
         int last[26]={0};
         for(int i=0;i<S.size();i++){
             last[S[i]-'a']=i;
