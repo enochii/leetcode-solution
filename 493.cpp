@@ -47,6 +47,7 @@ public:
                 vec[index++]=*first++;
             }else{
                 vec[index++]=*first2++;
+                //除了时间复杂度，这种计算方法对负数还是存在问题的
                 // int tmp = vec[index++]=*first2++;
                 // auto it=first;
                 // for(;it!=mid&&*it<=2ll*tmp;it++);
