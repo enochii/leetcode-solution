@@ -22,7 +22,7 @@ public:
         if(!root)return;
         
         recur(root->left, prev);
-        if(root->left){
+        if(prev < root->val){
             ans = min(ans, root->val - prev);
             // cout<<root->val << ' ' << prev<<'\n';
         }

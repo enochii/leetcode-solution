@@ -1,5 +1,6 @@
 // 1052. Grumpy Bookstore Owner
 //Sliding Window
+//我居然想出来了？！
 class Solution {
 public:
     int maxSatisfied(vector<int>& customers, vector<int>& grumpy, int x) {
